@@ -21,10 +21,9 @@
                             dark: '#0B0F17',
                             card: '#151D2A',
                             border: '#232E42',
-                            // Đã đổi sang tông Xanh lá nhạt phối Xanh nước biển nhạt
-                            accent: '#38BDF8',       /* Xanh nước biển nhạt (Sky Blue) */
-                            accentHover: '#0EA5E9',  /* Xanh nước biển sáng hơn khi hover */
-                            lightGreen: '#4ADE80',   /* Xanh lá nhạt tươi mát */
+                            accent: '#38BDF8',
+                            accentHover: '#0EA5E9',
+                            lightGreen: '#4ADE80',
                         }
                     },
                     fontFamily: {
@@ -116,7 +115,7 @@
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
                     <i data-lucide="search" class="w-5 h-5"></i>
                 </div>
-                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Tìm kiếm tên mod (như Sodium, Iris, JourneyMap...)" class="w-full pl-11 pr-28 py-3.5 sm:py-4 bg-mine-card/90 border border-mine-border focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 text-slate-100 placeholder-slate-500 text-sm sm:text-base rounded-2xl outline-none backdrop-blur-xl transition-all">
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Tìm kiếm tên mod (như Sodium, Iris, Bobby...)" class="w-full pl-11 pr-28 py-3.5 sm:py-4 bg-mine-card/90 border border-mine-border focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 text-slate-100 placeholder-slate-500 text-sm sm:text-base rounded-2xl outline-none backdrop-blur-xl transition-all">
                 <button onclick="resetSearchInput()" class="absolute inset-y-2 right-2 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl border border-slate-700 transition-colors">
                     Làm Mới
                 </button>
@@ -394,13 +393,17 @@
                 category: 'optimization',
                 categoryLabel: 'Tối Ưu FPS',
                 maxVersion: '1.26.3',
-                versions: ['1.26.3', '1.26.2', '1.26.1', '1.26.0', '1.25.2', '1.21.4', '1.21.1', '1.20.4', '1.20.1', '1.19.4', '1.18.2', '1.16.5'],
+                versions: ['1.26.3', '1.26.2', '1.26.1', '1.21.4', '1.20.1', '1.19.4', '1.16.5'],
                 loaders: ['Fabric', 'NeoForge'],
                 icon: '⚡',
                 shortDesc: 'Mod tối ưu hóa engine render giúp tăng 200% - 400% FPS cho Minecraft.',
                 fullDesc: 'Sodium thay đổi hoàn toàn cách Minecraft render khối lệnh và ánh sáng, giảm giật lag spike và tăng vọt FPS.',
                 dependencies: ['Fabric API'],
-                jarFiles: [{ ver: '1.26.3', loader: 'Fabric', name: 'sodium-mc1.26.3-v0.6.2.jar', size: '1.8 MB' }]
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'sodium-mc1.26.3-v0.6.8.jar', size: '1.8 MB' },
+                    { ver: '1.21.4', loader: 'Fabric', name: 'sodium-mc1.21.4-v0.6.0.jar', size: '1.7 MB' },
+                    { ver: '1.20.1', loader: 'Fabric', name: 'sodium-mc1.20.1-v0.5.8.jar', size: '1.6 MB' }
+                ]
             },
             {
                 id: 'iris-shaders',
@@ -411,13 +414,190 @@
                 category: 'shaders',
                 categoryLabel: 'Shaders',
                 maxVersion: '1.26.3',
-                versions: ['1.26.3', '1.26.1', '1.25.0', '1.21.4', '1.21.1', '1.20.4', '1.20.1', '1.19.2', '1.18.2'],
+                versions: ['1.26.3', '1.26.1', '1.21.4', '1.20.1', '1.19.2'],
                 loaders: ['Fabric', 'Quilt'],
                 icon: '✨',
                 shortDesc: 'Mod chạy Shaders đồ họa siêu mượt tương thích với Sodium FPS.',
                 fullDesc: 'Iris Shaders cho phép bạn bật các gói Shaders như BSL, Complementary mà vẫn giữ được FPS rất mượt.',
                 dependencies: ['Sodium', 'Fabric API'],
-                jarFiles: [{ ver: '1.26.3', loader: 'Fabric', name: 'iris-mc1.26.3-v1.8.1.jar', size: '2.4 MB' }]
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'iris-mc1.26.3-v1.8.5.jar', size: '2.4 MB' },
+                    { ver: '1.21.4', loader: 'Fabric', name: 'iris-mc1.21.4-v1.8.0.jar', size: '2.3 MB' }
+                ]
+            },
+            {
+                id: 'distant-horizons',
+                name: 'Distant Horizons',
+                author: 'JamesLOD',
+                downloads: '14.2M',
+                rating: 4.9,
+                category: 'world',
+                categoryLabel: 'Thế Giới',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.4', '1.20.1', '1.18.2'],
+                loaders: ['Fabric', 'Forge', 'NeoForge'],
+                icon: '🏔️',
+                shortDesc: 'Tăng khoảng cách nhìn thấy bản đồ (Render Distance) lên đến 128 - 512 Chunks!',
+                fullDesc: 'Tự động tạo các bản mô phỏng LOD đơn giản cho vùng đất xa, giúp nhìn thấy tầm nhìn cực rộng mà không bị ngốn RAM.',
+                dependencies: ['Fabric API / Forge'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'DistantHorizons-mc1.26.3-v2.2.5.jar', size: '5.1 MB' },
+                    { ver: '1.21.4', loader: 'NeoForge', name: 'DistantHorizons-mc1.21.4-v2.1.0.jar', size: '4.9 MB' }
+                ]
+            },
+            {
+                id: 'appleskin',
+                name: 'AppleSkin',
+                author: 'squeek502',
+                downloads: '78.3M',
+                rating: 4.9,
+                category: 'qol',
+                categoryLabel: 'Tiện Ích QoL',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.1', '1.19.2', '1.16.5'],
+                loaders: ['Fabric', 'Forge', 'NeoForge', 'Quilt'],
+                icon: '🍎',
+                shortDesc: 'Hiển thị chi tiết độ no và độ hồi máu khi đưa chuột vào món ăn.',
+                fullDesc: 'Mod cực kỳ hữu ích giúp xem độ no ẩn (Saturation) và lượng đùi gà hồi phục của thức ăn.',
+                dependencies: ['Không yêu cầu'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'appleskin-fabric-mc1.26.3-3.0.5.jar', size: '420 KB' },
+                    { ver: '1.21.4', loader: 'Fabric', name: 'appleskin-fabric-mc1.21.4-3.0.0.jar', size: '410 KB' }
+                ]
+            },
+            {
+                id: 'bobby',
+                name: 'Bobby',
+                author: 'Johni0702',
+                downloads: '8.4M',
+                rating: 4.8,
+                category: 'world',
+                categoryLabel: 'Thế Giới',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.1', '1.19.4'],
+                loaders: ['Fabric'],
+                icon: '👁️',
+                shortDesc: 'Lưu trữ Chunks trên Server Multiplayer để xem tầm xa như Singleplayer.',
+                fullDesc: 'Cho phép bạn nhìn xa đến 32 Chunks trên Server Multiplayer bằng cách lưu bộ nhớ đệm trên máy.',
+                dependencies: ['Fabric API'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'bobby-1.26.3-5.2.2.jar', size: '1.1 MB' },
+                    { ver: '1.21.4', loader: 'Fabric', name: 'bobby-1.21.4-5.0.1.jar', size: '1.0 MB' }
+                ]
+            },
+            {
+                id: 'worldedit',
+                name: 'WorldEdit',
+                author: 'sk89q',
+                downloads: '55.4M',
+                rating: 4.9,
+                category: 'world',
+                categoryLabel: 'Thế Giới',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.1', '1.16.5'],
+                loaders: ['Fabric', 'Forge', 'NeoForge'],
+                icon: '🌍',
+                shortDesc: 'Công cụ chỉnh sửa thế giới, xây dựng nhanh bằng lệnh cực kỳ mạnh mẽ.',
+                fullDesc: 'Cho phép copy, paste, thay thế khối hàng loạt trong thế giới Minecraft một cách nhanh chóng.',
+                dependencies: ['Không yêu cầu'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'worldedit-fabric-7.3.8.jar', size: '4.2 MB' }
+                ]
+            },
+            {
+                id: 'jei',
+                name: 'Just Enough Items (JEI)',
+                author: 'mezz',
+                downloads: '142.1M',
+                rating: 5.0,
+                category: 'qol',
+                categoryLabel: 'Tiện Ích QoL',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.1', '1.19.2', '1.16.5'],
+                loaders: ['Fabric', 'Forge', 'NeoForge'],
+                icon: '📖',
+                shortDesc: 'Xem danh sách toàn bộ vật phẩm và công thức chế tạo trong game.',
+                fullDesc: 'Hỗ trợ tra cứu công thức chế tạo ngay trong giao diện hòm đồ cực kỳ tiện lợi.',
+                dependencies: ['Không yêu cầu'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'jei-1.26.3-fabric-17.3.0.jar', size: '3.1 MB' }
+                ]
+            },
+            {
+                id: 'XaerosMinimap',
+                name: 'Xaeros Minimap',
+                author: 'xaero96',
+                downloads: '71.2M',
+                rating: 4.8,
+                category: 'ui',
+                categoryLabel: 'Bản Đồ & UI',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.1', '1.19.2', '1.16.5'],
+                loaders: ['Fabric', 'Forge', 'NeoForge'],
+                icon: '🗺️',
+                shortDesc: 'Bản đồ thu nhỏ góc màn hình thiết kế đẹp, nhẹ nhàng và chuẩn xác.',
+                fullDesc: 'Hiển thị minimap thời gian thực, đánh dấu điểm chết và vị trí nhà cửa.',
+                dependencies: ['Không yêu cầu'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'Xaeros_Minimap_24.7.0_Fabric.jar', size: '2.8 MB' }
+                ]
+            },
+            {
+                id: 'MouseTweaks',
+                name: 'Mouse Tweaks',
+                author: 'Yulife',
+                downloads: '45.0M',
+                rating: 4.8,
+                category: 'qol',
+                categoryLabel: 'Tiện Ích QoL',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.1', '1.16.5'],
+                loaders: ['Fabric', 'Forge', 'NeoForge'],
+                icon: '🖱️',
+                shortDesc: 'Cải tiến thao tác chuột trong kho đồ, chuyển đổi vật phẩm siêu tốc.',
+                fullDesc: 'Giúp bạn kéo thả, sắp xếp hòm đồ và craft đồ nhanh chóng chỉ bằng vài cú click chuột.',
+                dependencies: ['Không yêu cầu'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'MouseTweaks-fabric-1.26.3-2.26.jar', size: '160 KB' }
+                ]
+            },
+            {
+                id: 'Controlling',
+                name: 'Controlling',
+                author: 'Jaredlll08',
+                downloads: '32.6M',
+                rating: 4.7,
+                category: 'qol',
+                categoryLabel: 'Tiện Ích QoL',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.1', '1.16.5'],
+                loaders: ['Fabric', 'Forge', 'NeoForge'],
+                icon: '⌨️',
+                shortDesc: 'Thêm thanh tìm kiếm vào bảng cài đặt phím tắt (Keybindings).',
+                fullDesc: 'Giúp tìm kiếm nhanh các phím tắt bị trùng lặp hoặc cần đổi một cách dễ dàng.',
+                dependencies: ['Không yêu cầu'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'Controlling-fabric-1.26.3-19.4.jar', size: '350 KB' }
+                ]
+            },
+            {
+                id: 'Clumps',
+                name: 'Clumps',
+                author: 'BlayTheNinth',
+                downloads: '64.9M',
+                rating: 4.9,
+                category: 'optimization',
+                categoryLabel: 'Tối Ưu FPS',
+                maxVersion: '1.26.3',
+                versions: ['1.26.3', '1.21.4', '1.20.1', '1.19.2', '1.16.5'],
+                loaders: ['Fabric', 'Forge', 'NeoForge'],
+                icon: '💡',
+                shortDesc: 'Gom các cục kinh nghiệm (XP Orbs) lại thành một để giảm giật lag.',
+                fullDesc: 'Khi bạn hạ gục nhiều quái vật, hàng trăm cục kinh nghiệm sẽ được gom lại làm một, chống tụt FPS hiệu quả.',
+                dependencies: ['Không yêu cầu'],
+                jarFiles: [
+                    { ver: '1.26.3', loader: 'Fabric', name: 'Clumps-fabric-1.26.3-18.0.2.jar', size: '210 KB' }
+                ]
             }
         ];
 
@@ -781,7 +961,10 @@
                                     <div class="text-xs font-bold text-white">${file.name}</div>
                                     <div class="text-[10px] text-slate-400">MC ${file.ver} (${file.loader}) •${file.size}</div>
                                 </div>
-                                <button onclick="showToast('Đang tải ${file.name} (Tối đa 500MB)...')" class="px-3 py-1.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-lg text-xs">Tải Về</button>
+                                <button onclick="triggerDirectDownload('${file.name}')" class="px-3 py-1.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-lg text-xs flex items-center space-x-1">
+                                    <i data-lucide="download" class="w-3.5 h-3.5"></i>
+                                    <span>Tải Về</span>
+                                </button>
                             </div>
                         `).join('')}
                     </div>
@@ -797,6 +980,17 @@
             const modal = document.getElementById('modModal');
             modal.classList.add('opacity-0');
             setTimeout(() => modal.classList.add('hidden'), 200);
+        }
+
+        function triggerDirectDownload(fileName) {
+            showToast(`Đang tải file: ${fileName}`);
+            const element = document.createElement('a');
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`// VN Mod Minecraft File: ${fileName}\n// Đây là file mod mẫu hoạt động trực tiếp.`));
+            element.setAttribute('download', fileName);
+            element.style.display = 'none';
+            document.body.appendChild(element);
+            element.click();
+            document.body.removeChild(element);
         }
 
         function showToast(message) {

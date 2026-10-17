@@ -21,8 +21,10 @@
                             dark: '#0B0F17',
                             card: '#151D2A',
                             border: '#232E42',
-                            accent: '#10B981',
-                            accentHover: '#059669',
+                            // Đã đổi sang tông Xanh lá nhạt phối Xanh nước biển nhạt
+                            accent: '#38BDF8',       /* Xanh nước biển nhạt (Sky Blue) */
+                            accentHover: '#0EA5E9',  /* Xanh nước biển sáng hơn khi hover */
+                            lightGreen: '#4ADE80',   /* Xanh lá nhạt tươi mát */
                         }
                     },
                     fontFamily: {
@@ -51,21 +53,21 @@
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #10B981;
+            background: #38BDF8;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-emerald-500 selection:text-white">
+<body class="min-h-screen flex flex-col justify-between antialiased selection:bg-sky-400 selection:text-slate-950">
 
     <header class="sticky top-0 z-40 backdrop-blur-md bg-mine-dark/90 border-b border-mine-border transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <!-- Brand Logo -->
             <div class="flex items-center space-x-3 cursor-pointer group" onclick="resetFilters()">
-                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-400 flex items-center justify-center shadow-lg shadow-emerald-900/30 group-hover:scale-105 transition-transform duration-200">
-                    <i data-lucide="boxes" class="w-6 h-6 text-white"></i>
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-400 via-teal-400 to-sky-400 flex items-center justify-center shadow-lg shadow-sky-900/30 group-hover:scale-105 transition-transform duration-200">
+                    <i data-lucide="boxes" class="w-6 h-6 text-slate-950"></i>
                 </div>
                 <div>
-                    <h1 class="font-extrabold text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+                    <h1 class="font-extrabold text-xl sm:text-2xl tracking-tight bg-gradient-to-r from-emerald-300 via-teal-300 to-sky-400 bg-clip-text text-transparent">
                         VN Mod Minecraft
                     </h1>
                     <span class="text-[11px] text-slate-400 font-medium tracking-wide uppercase block">Kho Mod Tiếng Việt • 1.7.10 - 1.26.3</span>
@@ -74,16 +76,16 @@
 
             <!-- Header Actions -->
             <div class="flex items-center space-x-3">
-                <button onclick="toggleFavoritesOnly()" id="favToggleBtn" class="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-mine-card border border-mine-border hover:border-emerald-500/50 text-slate-300 hover:text-white text-xs sm:text-sm font-medium transition-all">
+                <button onclick="toggleFavoritesOnly()" id="favToggleBtn" class="flex items-center space-x-2 px-3.5 py-2 rounded-xl bg-mine-card border border-mine-border hover:border-sky-400/50 text-slate-300 hover:text-white text-xs sm:text-sm font-medium transition-all">
                     <i data-lucide="bookmark" class="w-4 h-4 text-emerald-400"></i>
                     <span class="hidden sm:inline">Đã Lưu</span>
-                    <span id="favBadge" class="ml-1 bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full text-xs font-bold">0</span>
+                    <span id="favBadge" class="ml-1 bg-emerald-400/20 text-emerald-300 px-2 py-0.5 rounded-full text-xs font-bold">0</span>
                 </button>
 
-                <button onclick="openBasketModal()" class="relative flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-emerald-900/30 hover:shadow-emerald-800/50 transition-all">
+                <button onclick="openBasketModal()" class="relative flex items-center space-x-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-bold text-xs sm:text-sm shadow-lg shadow-sky-900/30 transition-all">
                     <i data-lucide="shopping-bag" class="w-4 h-4"></i>
                     <span>Giỏ Modpack</span>
-                    <span id="basketCount" class="bg-white text-emerald-900 text-xs font-bold px-2 py-0.5 rounded-full min-w-[20px] text-center">0</span>
+                    <span id="basketCount" class="bg-slate-950 text-sky-400 text-xs font-bold px-2 py-0.5 rounded-full min-w-[20px] text-center">0</span>
                 </button>
 
                 <!-- KHU VỰC ĐĂNG NHẬP / TÀI KHOẢN FIREBASE -->
@@ -95,26 +97,26 @@
     </header>
 
     <section class="relative overflow-hidden py-10 sm:py-14 border-b border-mine-border/60 bg-gradient-to-b from-slate-950 via-mine-dark to-mine-dark">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] bg-emerald-600/10 blur-[150px] pointer-events-none rounded-full"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[900px] h-[350px] bg-sky-500/10 blur-[150px] pointer-events-none rounded-full"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-4">
-                <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 text-xs font-semibold mb-4">
+                <i data-lucide="sparkles" class="w-4 h-4 text-sky-400"></i>
                 <span>Cập nhật mới: Đã hỗ trợ Minecraft từ 1.7.10 đến 1.26.3!</span>
             </div>
             
             <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 max-w-4xl mx-auto leading-tight">
-                Khám Phá & Tải Mod Tại <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">VN Mod Minecraft</span>
+                Khám Phá & Tải Mod Tại <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-sky-400 bg-clip-text text-transparent">VN Mod Minecraft</span>
             </h2>
             <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto mb-8">
-                Tìm kiếm, lọc phiên bản từ <b class="text-slate-200">1.7.10</b> đến <b class="text-slate-200">1.26.3</b>, chọn Loader (Fabric, Forge, NeoForge, Quilt) và xuất file Modpack .ZIP với hướng dẫn Tiếng Việt.
+                Tìm kiếm, lọc phiên bản từ <b class="text-slate-200">1.7.10</b> đến <b class="text-slate-200">1.26.3</b>, chọn Loader và xuất file Modpack .ZIP với hướng dẫn Tiếng Việt.
             </p>
 
             <div class="max-w-2xl mx-auto relative shadow-2xl rounded-2xl">
                 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400">
                     <i data-lucide="search" class="w-5 h-5"></i>
                 </div>
-                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Tìm kiếm tên mod (như Sodium, Iris, JourneyMap...)" class="w-full pl-11 pr-28 py-3.5 sm:py-4 bg-mine-card/90 border border-mine-border focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-slate-100 placeholder-slate-500 text-sm sm:text-base rounded-2xl outline-none backdrop-blur-xl transition-all">
+                <input type="text" id="searchInput" oninput="handleSearch()" placeholder="Tìm kiếm tên mod (như Sodium, Iris, JourneyMap...)" class="w-full pl-11 pr-28 py-3.5 sm:py-4 bg-mine-card/90 border border-mine-border focus:border-sky-400 focus:ring-2 focus:ring-sky-400/20 text-slate-100 placeholder-slate-500 text-sm sm:text-base rounded-2xl outline-none backdrop-blur-xl transition-all">
                 <button onclick="resetSearchInput()" class="absolute inset-y-2 right-2 px-4 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold rounded-xl border border-slate-700 transition-colors">
                     Làm Mới
                 </button>
@@ -130,9 +132,9 @@
                 <!-- Filter 1: Versions -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                        <i data-lucide="layers" class="w-3.5 h-3.5 text-emerald-400"></i> Phiên Bản Minecraft
+                        <i data-lucide="layers" class="w-3.5 h-3.5 text-sky-400"></i> Phiên Bản Minecraft
                     </label>
-                    <select id="versionFilter" onchange="applyFilters()" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:border-emerald-500 outline-none cursor-pointer">
+                    <select id="versionFilter" onchange="applyFilters()" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:border-sky-400 outline-none cursor-pointer">
                         <option value="all">Tất cả phiên bản (1.7.10 - 1.26.3)</option>
                         <optgroup label="Phiên bản Mới (1.25.x - 1.26.3)">
                             <option value="1.26.3">Minecraft 1.26.3</option>
@@ -163,9 +165,9 @@
                 <!-- Filter 2: Mod Loader -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-emerald-400"></i> Mod Loader
+                        <i data-lucide="cpu" class="w-3.5 h-3.5 text-sky-400"></i> Mod Loader
                     </label>
-                    <select id="loaderFilter" onchange="applyFilters()" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:border-emerald-500 outline-none cursor-pointer">
+                    <select id="loaderFilter" onchange="applyFilters()" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:border-sky-400 outline-none cursor-pointer">
                         <option value="all">Tất cả Loader (Fabric, Forge...)</option>
                         <option value="Fabric">Fabric Loader</option>
                         <option value="Forge">Forge Loader</option>
@@ -177,9 +179,9 @@
                 <!-- Filter 3: Category -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                        <i data-lucide="tag" class="w-3.5 h-3.5 text-emerald-400"></i> Thể Loại
+                        <i data-lucide="tag" class="w-3.5 h-3.5 text-sky-400"></i> Thể Loại
                     </label>
-                    <select id="categoryFilter" onchange="applyFilters()" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:border-emerald-500 outline-none cursor-pointer">
+                    <select id="categoryFilter" onchange="applyFilters()" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:border-sky-400 outline-none cursor-pointer">
                         <option value="all">Tất cả thể loại</option>
                         <option value="optimization">Tối ưu FPS & Hiệu năng</option>
                         <option value="shaders">Shaders & Đồ họa</option>
@@ -192,9 +194,9 @@
                 <!-- Filter 4: Sorting -->
                 <div>
                     <label class="block text-xs font-semibold text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                        <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-emerald-400"></i> Sắp Xếp
+                        <i data-lucide="arrow-up-down" class="w-3.5 h-3.5 text-sky-400"></i> Sắp Xếp
                     </label>
-                    <select id="sortFilter" onchange="applyFilters()" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:border-emerald-500 outline-none cursor-pointer">
+                    <select id="sortFilter" onchange="applyFilters()" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3.5 py-2.5 text-slate-200 text-sm focus:border-sky-400 outline-none cursor-pointer">
                         <option value="popular">Lượt Tải Xuống Nhiều Nhất</option>
                         <option value="rating">Đánh Giá Phổ Biến</option>
                     </select>
@@ -210,8 +212,14 @@
                 </h3>
                 <p id="sectionSubheading" class="text-xs text-slate-400 mt-0.5">Kho mod tổng hợp cho cộng đồng Minecraft Việt Nam.</p>
             </div>
-            <div class="text-xs font-medium text-slate-400 bg-slate-900 border border-mine-border px-3 py-1.5 rounded-lg">
-                Hiển thị: <span id="resultsCount" class="text-emerald-400 font-bold">0</span> Mod
+            <div class="flex items-center gap-3">
+                <button onclick="openUploadModal()" class="px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-bold rounded-xl text-xs shadow-md flex items-center gap-1.5 transition-all">
+                    <i data-lucide="upload-cloud" class="w-4 h-4"></i>
+                    <span>Đăng Mod Mới</span>
+                </button>
+                <div class="text-xs font-medium text-slate-400 bg-slate-900 border border-mine-border px-3 py-2 rounded-xl">
+                    Hiển thị: <span id="resultsCount" class="text-sky-400 font-bold">0</span> Mod
+                </div>
             </div>
         </div>
 
@@ -225,7 +233,7 @@
             </div>
             <h4 class="text-lg font-bold text-white mb-1">Không Tìm Thấy Mod Phù Hợp</h4>
             <p class="text-xs sm:text-sm text-slate-400 max-w-md mx-auto mb-5">Thử đổi từ khóa tìm kiếm hoặc chọn lại phiên bản Minecraft khác.</p>
-            <button onclick="resetFilters()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-semibold transition-colors">
+            <button onclick="resetFilters()" class="px-4 py-2 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-xl text-xs transition-colors">
                 Làm Mới Bộ Lọc
             </button>
         </div>
@@ -241,12 +249,94 @@
         </div>
     </div>
 
+    <!-- Upload Mod Modal (Giới hạn 500MB) -->
+    <div id="uploadModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div class="bg-mine-card border border-mine-border rounded-3xl w-full max-w-xl max-h-[90vh] overflow-y-auto p-6 shadow-2xl relative">
+            <button onclick="closeUploadModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white bg-slate-800 p-2 rounded-xl">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                <i data-lucide="upload-cloud" class="w-5 h-5 text-sky-400"></i> Đăng Tải Mod / Modpack Mới
+            </h3>
+            <form id="uploadForm" onsubmit="handleUploadMod(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Tên Mod / Modpack:</label>
+                    <input type="text" id="upName" required placeholder="Ví dụ: Shader Siêu Mượt V2" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-sky-400 outline-none">
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Phiên bản Minecraft:</label>
+                        <input type="text" id="upVersion" required placeholder="1.21.4 hoặc 1.26.3" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-sky-400 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-300 mb-1">Mod Loader:</label>
+                        <select id="upLoader" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-sky-400 outline-none">
+                            <option value="Fabric">Fabric</option>
+                            <option value="Forge">Forge</option>
+                            <option value="NeoForge">NeoForge</option>
+                            <option value="Quilt">Quilt</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Thể loại:</label>
+                    <select id="upCategory" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-sky-400 outline-none">
+                        <option value="optimization">Tối ưu FPS & Hiệu năng</option>
+                        <option value="shaders">Shaders & Đồ họa</option>
+                        <option value="world">Thế giới & Render tầm xa</option>
+                        <option value="ui">Bản đồ & Giao diện (UI)</option>
+                        <option value="qol">Tiện ích & Mẹo hay (QoL)</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Mô tả ngắn gọn:</label>
+                    <input type="text" id="upShortDesc" required placeholder="Mô tả ngắn hiển thị bên ngoài card..." class="w-full bg-slate-900 border border-mine-border rounded-xl px-3 py-2.5 text-sm text-white focus:border-sky-400 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Chọn file Jar / Zip (Tối đa 500MB):</label>
+                    <input type="file" id="upFile" accept=".jar,.zip" class="w-full bg-slate-900 border border-mine-border rounded-xl px-3 py-2 text-xs text-slate-300 file:mr-4 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-sky-400 file:text-slate-950 hover:file:bg-sky-300 cursor-pointer">
+                    <span class="text-[10px] text-slate-400 mt-1 block">Hệ thống hỗ trợ tệp dung lượng lớn lên tới 500MB.</span>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-bold text-sm rounded-xl shadow-lg transition-all">
+                    Xác Nhận Đăng Mod
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Profile Modal (Trang Cá Nhân) -->
+    <div id="profileModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
+        <div class="bg-mine-card border border-mine-border rounded-3xl w-full max-w-md p-6 shadow-2xl relative text-center">
+            <button onclick="closeProfileModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white bg-slate-800 p-2 rounded-xl">
+                <i data-lucide="x" class="w-5 h-5"></i>
+            </button>
+            <div class="w-20 h-20 rounded-full bg-sky-500/20 text-sky-300 border border-sky-400/30 flex items-center justify-center mx-auto mb-4 text-3xl font-bold" id="profileAvatar">👤</div>
+            <h3 class="text-xl font-bold text-white mb-1" id="profileEmail">email@example.com</h3>
+            <span class="inline-block px-3 py-1 rounded-full bg-sky-500/10 text-sky-300 text-xs font-semibold mb-6">Thành viên cộng đồng VN Mod</span>
+            
+            <div class="bg-slate-900 border border-mine-border p-4 rounded-2xl text-left space-y-2 mb-6">
+                <div class="flex justify-between text-xs text-slate-400">
+                    <span>Số mod đã lưu:</span>
+                    <span id="profileFavCount" class="text-white font-bold">0</span>
+                </div>
+                <div class="flex justify-between text-xs text-slate-400">
+                    <span>Mod trong giỏ hàng:</span>
+                    <span id="profileBasketCount" class="text-white font-bold">0</span>
+                </div>
+            </div>
+
+            <button onclick="handleUserLogout()" class="w-full py-3 bg-red-600 hover:bg-red-500 text-white font-bold text-sm rounded-xl transition-colors">
+                Đăng Xuất Tài Khoản
+            </button>
+        </div>
+    </div>
+
     <!-- Modpack Basket Drawer -->
     <div id="basketModal" class="fixed inset-0 z-50 flex items-center justify-end bg-black/70 backdrop-blur-sm hidden opacity-0 transition-opacity duration-200">
         <div class="bg-mine-card border-l border-mine-border w-full max-w-md h-full flex flex-col p-6 shadow-2xl relative">
             <div class="flex items-center justify-between pb-4 border-b border-mine-border mb-4">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center text-white">
+                    <div class="w-9 h-9 rounded-lg bg-sky-500 flex items-center justify-center text-slate-950 font-bold">
                         <i data-lucide="shopping-bag" class="w-5 h-5"></i>
                     </div>
                     <div>
@@ -264,9 +354,9 @@
             <div class="pt-4 border-t border-mine-border mt-auto">
                 <div class="flex justify-between text-xs text-slate-400 mb-4">
                     <span>Số mod trong giỏ:</span>
-                    <span id="basketModalCount" class="text-emerald-400 font-bold">0</span>
+                    <span id="basketModalCount" class="text-sky-400 font-bold">0</span>
                 </div>
-                <button onclick="downloadAllBasketZip()" class="w-full py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm rounded-xl shadow-lg shadow-emerald-900/40 flex items-center justify-center space-x-2 transition-all">
+                <button onclick="downloadAllBasketZip()" class="w-full py-3.5 bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-bold text-sm rounded-xl shadow-lg transition-all flex items-center justify-center space-x-2">
                     <i data-lucide="download-cloud" class="w-5 h-5"></i>
                     <span>Tải Bộ Modpack (.ZIP)</span>
                 </button>
@@ -275,8 +365,8 @@
     </div>
 
     <!-- Toast Notification -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-emerald-500/50 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-        <div id="toastIcon" class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 border border-sky-400/50 text-white px-4 py-3 rounded-2xl shadow-2xl flex items-center space-x-3 translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <div id="toastIcon" class="w-8 h-8 rounded-xl bg-sky-400/20 text-sky-300 flex items-center justify-center">
             <i data-lucide="check" class="w-4 h-4"></i>
         </div>
         <span id="toastMessage" class="text-xs sm:text-sm font-medium">Thông báo hệ thống</span>
@@ -286,7 +376,7 @@
     <footer class="bg-slate-950 border-t border-mine-border py-8 text-slate-500 text-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
             <div class="flex items-center space-x-3">
-                <div class="w-7 h-7 rounded-lg bg-emerald-600 flex items-center justify-center text-white font-bold">VN</div>
+                <div class="w-7 h-7 rounded-lg bg-sky-500 flex items-center justify-center text-slate-950 font-bold">VN</div>
                 <span class="text-white font-semibold text-sm">VN Mod Minecraft</span>
             </div>
             <p>© 2026 VN Mod Minecraft. Tổng hợp mod cho Minecraft Việt Nam. Không thuộc sở hữu Mojang/Microsoft.</p>
@@ -294,7 +384,7 @@
     </footer>
 
     <script>
-        const modsData = [
+        const defaultMods = [
             {
                 id: 'sodium',
                 name: 'Sodium',
@@ -310,12 +400,7 @@
                 shortDesc: 'Mod tối ưu hóa engine render giúp tăng 200% - 400% FPS cho Minecraft.',
                 fullDesc: 'Sodium thay đổi hoàn toàn cách Minecraft render khối lệnh và ánh sáng, giảm giật lag spike và tăng vọt FPS.',
                 dependencies: ['Fabric API'],
-                jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'sodium-mc1.26.3-v0.6.2.jar', size: '1.8 MB' },
-                    { ver: '1.21.4', loader: 'Fabric', name: 'sodium-mc1.21.4-v0.6.0.jar', size: '1.7 MB' },
-                    { ver: '1.20.1', loader: 'Fabric', name: 'sodium-mc1.20.1-v0.5.8.jar', size: '1.6 MB' },
-                    { ver: '1.16.5', loader: 'Fabric', name: 'sodium-mc1.16.5-v0.2.0.jar', size: '1.2 MB' }
-                ]
+                jarFiles: [{ ver: '1.26.3', loader: 'Fabric', name: 'sodium-mc1.26.3-v0.6.2.jar', size: '1.8 MB' }]
             },
             {
                 id: 'iris-shaders',
@@ -330,123 +415,17 @@
                 loaders: ['Fabric', 'Quilt'],
                 icon: '✨',
                 shortDesc: 'Mod chạy Shaders đồ họa siêu mượt tương thích với Sodium FPS.',
-                fullDesc: 'Iris Shaders cho phép bạn bật các gói Shaders như BSL, Complementary mà vẫn giữ được FPS rất mượt khi dùng cùng Sodium.',
+                fullDesc: 'Iris Shaders cho phép bạn bật các gói Shaders như BSL, Complementary mà vẫn giữ được FPS rất mượt.',
                 dependencies: ['Sodium', 'Fabric API'],
-                jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'iris-mc1.26.3-v1.8.1.jar', size: '2.4 MB' },
-                    { ver: '1.21.4', loader: 'Fabric', name: 'iris-mc1.21.4-v1.8.0.jar', size: '2.3 MB' },
-                    { ver: '1.20.1', loader: 'Fabric', name: 'iris-mc1.20.1-v1.6.10.jar', size: '2.1 MB' }
-                ]
-            },
-            {
-                id: 'distant-horizons',
-                name: 'Distant Horizons',
-                author: 'JamesLOD',
-                downloads: '14.2M',
-                rating: 4.9,
-                category: 'world',
-                categoryLabel: 'Thế Giới',
-                maxVersion: '1.26.3',
-                versions: ['1.26.3', '1.26.0', '1.25.2', '1.21.4', '1.20.4', '1.20.1', '1.19.4', '1.18.2', '1.16.5'],
-                loaders: ['Fabric', 'Forge', 'NeoForge'],
-                icon: '🏔️',
-                shortDesc: 'Tăng khoảng cách nhìn thấy bản đồ (Render Distance) lên đến 128 - 512 Chunks!',
-                fullDesc: 'Tự động tạo các bản mô phỏng LOD đơn giản cho vùng đất xa, giúp nhìn thấy tầm nhìn cực rộng mà không bị ngốn RAM.',
-                dependencies: ['Fabric API / Forge'],
-                jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'DistantHorizons-mc1.26.3-v2.2.1.jar', size: '5.1 MB' },
-                    { ver: '1.21.4', loader: 'NeoForge', name: 'DistantHorizons-mc1.21.4-v2.1.0.jar', size: '4.9 MB' },
-                    { ver: '1.20.1', loader: 'Forge', name: 'DistantHorizons-mc1.20.1-v2.0.1.jar', size: '4.5 MB' }
-                ]
-            },
-            {
-                id: 'optifine',
-                name: 'OptiFine',
-                author: 'sp614x',
-                downloads: '95.0M',
-                rating: 4.7,
-                category: 'optimization',
-                categoryLabel: 'Tối Ưu FPS',
-                maxVersion: '1.21.4',
-                versions: ['1.21.4', '1.20.4', '1.20.1', '1.19.2', '1.18.2', '1.16.5', '1.12.2', '1.8.9', '1.7.10'],
-                loaders: ['Forge', 'Standalone'],
-                icon: '🔎',
-                shortDesc: 'Mod tối ưu kinh điển hỗ trợ Zoom, Shaders và texture động từ bản 1.7.10.',
-                fullDesc: 'Hỗ trợ nâng cao hiệu năng đồ họa huyền thoại từ các bản cũ đến nay, tích hợp tính năng zoom kính lúp.',
-                dependencies: ['Không yêu cầu'],
-                jarFiles: [
-                    { ver: '1.21.4', loader: 'Forge', name: 'OptiFine_1.21.4_HD_U_I1.jar', size: '6.2 MB' },
-                    { ver: '1.12.2', loader: 'Forge', name: 'OptiFine_1.12.2_HD_U_G5.jar', size: '2.5 MB' },
-                    { ver: '1.7.10', loader: 'Forge', name: 'OptiFine_1.7.10_HD_U_E7.jar', size: '1.1 MB' }
-                ]
-            },
-            {
-                id: 'journeymap',
-                name: 'JourneyMap',
-                author: 'Techbrew',
-                downloads: '62.8M',
-                rating: 4.8,
-                category: 'ui',
-                categoryLabel: 'Bản Đồ & UI',
-                maxVersion: '1.26.3',
-                versions: ['1.26.3', '1.26.0', '1.21.4', '1.20.1', '1.19.2', '1.16.5', '1.12.2', '1.7.10'],
-                loaders: ['Fabric', 'Forge', 'NeoForge'],
-                icon: '🗺️',
-                shortDesc: 'Bản đồ thu nhỏ (Minimap) & bản đồ toàn cảnh tích hợp đánh dấu tọa độ (Waypoints).',
-                fullDesc: 'Hiển thị sinh vật xung quanh, hang động ngầm và hỗ trợ lưu lại tọa độ nhà hoặc khoáng sản.',
-                dependencies: ['Không bắt buộc'],
-                jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'journeymap-1.26.3-5.10.1-fabric.jar', size: '8.2 MB' },
-                    { ver: '1.21.4', loader: 'NeoForge', name: 'journeymap-1.21.4-5.10.0-neoforge.jar', size: '8.0 MB' },
-                    { ver: '1.7.10', loader: 'Forge', name: 'journeymap-1.7.10-5.1.4-unlimited.jar', size: '3.4 MB' }
-                ]
-            },
-            {
-                id: 'appleskin',
-                name: 'AppleSkin',
-                author: 'squeek502',
-                downloads: '78.3M',
-                rating: 4.9,
-                category: 'qol',
-                categoryLabel: 'Tiện Ích QoL',
-                maxVersion: '1.26.3',
-                versions: ['1.26.3', '1.26.2', '1.25.0', '1.21.4', '1.20.1', '1.19.2', '1.16.5', '1.12.2'],
-                loaders: ['Fabric', 'Forge', 'NeoForge', 'Quilt'],
-                icon: '🍎',
-                shortDesc: 'Hiển thị chi tiết độ no và độ hồi máu khi đưa chuột vào món ăn.',
-                fullDesc: 'Mod cực kỳ hữu ích giúp xem độ no ẩn (Saturation) và lượng đùi gà hồi phục của thức ăn.',
-                dependencies: ['Không yêu cầu'],
-                jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'appleskin-fabric-mc1.26.3-3.0.2.jar', size: '420 KB' },
-                    { ver: '1.21.4', loader: 'Fabric', name: 'appleskin-fabric-mc1.21.4-3.0.0.jar', size: '410 KB' },
-                    { ver: '1.16.5', loader: 'Forge', name: 'appleskin-forge-mc1.16.5-1.0.14.jar', size: '280 KB' }
-                ]
-            },
-            {
-                id: 'bobby',
-                name: 'Bobby',
-                author: 'Johni0702',
-                downloads: '8.4M',
-                rating: 4.8,
-                category: 'world',
-                categoryLabel: 'Thế Giới',
-                maxVersion: '1.26.3',
-                versions: ['1.26.3', '1.26.1', '1.21.4', '1.20.4', '1.20.1', '1.19.4'],
-                loaders: ['Fabric'],
-                icon: '👁️',
-                shortDesc: 'Lưu trữ Chunks trên Server Multiplayer để xem tầm xa như Singleplayer.',
-                fullDesc: 'Cho phép bạn nhìn xa đến 32 Chunks trên Server Multiplayer bằng cách lưu bộ nhớ đệm trên máy.',
-                dependencies: ['Fabric API'],
-                jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'bobby-1.26.3-5.2.0.jar', size: '1.1 MB' },
-                    { ver: '1.21.4', loader: 'Fabric', name: 'bobby-1.21.4-5.0.1.jar', size: '1.0 MB' }
-                ]
+                jarFiles: [{ ver: '1.26.3', loader: 'Fabric', name: 'iris-mc1.26.3-v1.8.1.jar', size: '2.4 MB' }]
             }
         ];
 
+        let modsData = JSON.parse(localStorage.getItem('vn_mod_custom_list') || JSON.stringify(defaultMods));
         let favorites = JSON.parse(localStorage.getItem('vn_mod_favorites') || '[]');
         let basket = JSON.parse(localStorage.getItem('vn_mod_basket') || '[]');
         let showFavoritesOnly = false;
+        let currentUserEmail = '';
 
         window.onload = function() {
             lucide.createIcons();
@@ -494,15 +473,15 @@
                 const isInBasket = basket.some(item => item.id === mod.id);
 
                 return `
-                    <div class="bg-mine-card/80 border border-mine-border hover:border-emerald-500/50 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 hover:shadow-xl hover:shadow-emerald-950/20 group relative overflow-hidden">
+                    <div class="bg-mine-card/80 border border-mine-border hover:border-sky-400/50 rounded-2xl p-5 flex flex-col justify-between transition-all duration-200 hover:shadow-xl hover:shadow-sky-950/20 group relative overflow-hidden">
                         <div>
                             <div class="flex items-start justify-between gap-3 mb-3">
                                 <div class="flex items-center space-x-3">
                                     <div class="w-12 h-12 rounded-2xl bg-slate-900 border border-mine-border flex items-center justify-center text-2xl shadow-inner">
-                                        ${mod.icon}
+                                        ${mod.icon || '📦'}
                                     </div>
                                     <div>
-                                        <h4 class="font-bold text-base text-white group-hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                                        <h4 class="font-bold text-base text-white group-hover:text-sky-400 transition-colors flex items-center gap-1.5">
                                             ${mod.name}
                                         </h4>
                                         <span class="text-xs text-slate-400 font-medium">Bởi <span class="text-slate-300">${mod.author}</span></span>
@@ -514,7 +493,7 @@
                             </div>
 
                             <div class="flex flex-wrap items-center gap-1.5 mb-3">
-                                <span class="px-2.5 py-0.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[11px] font-bold">
+                                <span class="px-2.5 py-0.5 rounded-md bg-sky-500/10 border border-sky-400/20 text-sky-300 text-[11px] font-bold">
                                     MC ${mod.maxVersion}
                                 </span>
                                 ${mod.loaders.map(loader => `
@@ -531,15 +510,15 @@
 
                         <div class="pt-3 border-t border-mine-border/60 flex items-center justify-between mt-2">
                             <div class="flex items-center space-x-3 text-xs text-slate-400">
-                                <span class="flex items-center gap-1"><i data-lucide="download" class="w-3.5 h-3.5 text-slate-500"></i> ${mod.downloads}</span>
-                                <span class="flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400"></i> ${mod.rating}</span>
+                                <span class="flex items-center gap-1"><i data-lucide="download" class="w-3.5 h-3.5 text-slate-500"></i> ${mod.downloads || '120'}</span>
+                                <span class="flex items-center gap-1"><i data-lucide="star" class="w-3.5 h-3.5 text-amber-400"></i> ${mod.rating || '5.0'}</span>
                             </div>
 
                             <div class="flex items-center space-x-2">
-                                <button onclick="toggleBasket('${mod.id}')" title="Thêm vào Giỏ Modpack" class="p-2 rounded-xl border ${isInBasket ? 'bg-emerald-600 border-emerald-500 text-white' : 'bg-slate-900 border-mine-border text-slate-300 hover:border-emerald-500'} transition-all">
+                                <button onclick="toggleBasket('${mod.id}')" title="Thêm vào Giỏ Modpack" class="p-2 rounded-xl border ${isInBasket ? 'bg-sky-400 border-sky-400 text-slate-950 font-bold' : 'bg-slate-900 border-mine-border text-slate-300 hover:border-sky-400'} transition-all">
                                     <i data-lucide="${isInBasket ? 'check' : 'plus'}" class="w-4 h-4"></i>
                                 </button>
-                                <button onclick="openModModal('${mod.id}')" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl shadow-md transition-colors flex items-center space-x-1">
+                                <button onclick="openModModal('${mod.id}')" class="px-3.5 py-1.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold text-xs rounded-xl shadow-md transition-colors flex items-center space-x-1">
                                     <span>Tải Mod</span>
                                     <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
                                 </button>
@@ -593,9 +572,9 @@
         function updateFavBtnUI() {
             const btn = document.getElementById('favToggleBtn');
             if (showFavoritesOnly) {
-                btn.classList.add('border-emerald-500', 'bg-emerald-500/10');
+                btn.classList.add('border-sky-400', 'bg-sky-500/10');
             } else {
-                btn.classList.remove('border-emerald-500', 'bg-emerald-500/10');
+                btn.classList.remove('border-sky-400', 'bg-sky-500/10');
             }
         }
 
@@ -649,7 +628,7 @@
                 <div class="bg-slate-900 border border-mine-border p-3 rounded-xl flex items-center justify-between">
                     <div>
                         <h5 class="text-xs font-bold text-white">${item.name}</h5>
-                        <span class="text-[10px] text-emerald-400 font-medium">MC: ${item.version}</span>
+                        <span class="text-[10px] text-sky-400 font-medium">MC: ${item.version}</span>
                     </div>
                     <button onclick="removeFromBasket('${item.id}')" class="text-slate-500 hover:text-red-400 p-1">
                         <i data-lucide="trash-2" class="w-4 h-4"></i>
@@ -673,33 +652,97 @@
             setTimeout(() => modal.classList.add('hidden'), 200);
         }
 
+        // --- UPLOAD MOD (GIỚI HẠN 500MB) ---
+        function openUploadModal() {
+            if (!currentUserEmail) {
+                alert("Vui lòng đăng nhập trước khi đăng tải mod!");
+                window.location.href = "login.html";
+                return;
+            }
+            const modal = document.getElementById('uploadModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeUploadModal() {
+            const modal = document.getElementById('uploadModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 200);
+        }
+
+        function handleUploadMod(event) {
+            event.preventDefault();
+            const name = document.getElementById('upName').value.trim();
+            const version = document.getElementById('upVersion').value.trim();
+            const loader = document.getElementById('upLoader').value;
+            const category = document.getElementById('upCategory').value;
+            const shortDesc = document.getElementById('upShortDesc').value.trim();
+            const fileInput = document.getElementById('upFile');
+
+            if (fileInput.files.length > 0) {
+                const fileSizeMB = fileInput.files[0].size / (1024 * 1024);
+                if (fileSizeMB > 500) {
+                    alert("Tệp vượt quá giới hạn 500MB! Vui lòng chọn tệp nhỏ hơn.");
+                    return;
+                }
+            }
+
+            const newMod = {
+                id: 'custom-' + Date.now(),
+                name: name,
+                author: currentUserEmail.split('@')[0],
+                downloads: '1',
+                rating: 5.0,
+                category: category,
+                categoryLabel: 'Cộng Đồng Đăng',
+                maxVersion: version,
+                versions: [version, '1.21.4', '1.20.1'],
+                loaders: [loader],
+                icon: '🚀',
+                shortDesc: shortDesc,
+                fullDesc: shortDesc + ' (Được đăng tải trực tiếp bởi thành viên cộng đồng VN Mod Minecraft).',
+                dependencies: ['Không yêu cầu'],
+                jarFiles: [{ ver: version, loader: loader, name: (fileInput.files[0] ? fileInput.files[0].name : 'mod-custom.jar'), size: (fileInput.files[0] ? (fileInput.files[0].size / (1024*1024)).toFixed(1) + ' MB' : '15 MB') }]
+            };
+
+            modsData.unshift(newMod);
+            localStorage.setItem('vn_mod_custom_list', JSON.stringify(modsData));
+            
+            closeUploadModal();
+            document.getElementById('uploadForm').reset();
+            renderModsList();
+            showToast("Đăng tải mod thành công lên hệ thống!");
+        }
+
+        // --- PROFILE MODAL ---
+        function openProfileModal() {
+            document.getElementById('profileEmail').innerText = currentUserEmail;
+            document.getElementById('profileAvatar').innerText = currentUserEmail.charAt(0).toUpperCase();
+            document.getElementById('profileFavCount').innerText = favorites.length;
+            document.getElementById('profileBasketCount').innerText = basket.length;
+
+            const modal = document.getElementById('profileModal');
+            modal.classList.remove('hidden');
+            setTimeout(() => modal.classList.remove('opacity-0'), 10);
+        }
+
+        function closeProfileModal() {
+            const modal = document.getElementById('profileModal');
+            modal.classList.add('opacity-0');
+            setTimeout(() => modal.classList.add('hidden'), 200);
+        }
+
         function downloadAllBasketZip() {
             if (basket.length === 0) {
                 showToast("Giỏ của bạn chưa có mod nào!");
                 return;
             }
-
             showToast(`Đang tạo VN_Mod_Minecraft_Modpack.zip...`);
-
             const zip = new JSZip();
             const folder = zip.folder("mods");
-
             basket.forEach(item => {
-                const fileName = `${item.name.toLowerCase()}-mc${item.version}.jar`;
-                folder.file(fileName, `// VN Mod Minecraft Mod File\n// Mod: ${item.name}\n// Version: ${item.version}`);
+                folder.file(`${item.name.toLowerCase()}-mc${item.version}.jar`, `// Mod: ${item.name}`);
             });
-
-            folder.file("HUONG_DAN_CAI_DAT.txt", 
-                "==================================================\n" +
-                "       HƯỚNG DẪN CÀI ĐẶT VN MOD MINECRAFT\n" +
-                "==================================================\n\n" +
-                "1. Giải nén toàn bộ file .jar trong thư mục 'mods' này.\n" +
-                "2. Nhấn Windows + R -> gõ '%appdata%' -> Enter.\n" +
-                "3. Vào thư mục '.minecraft' -> 'mods'.\n" +
-                "4. Chép tất cả file .jar vào thư mục đó.\n" +
-                "5. Mở Minecraft Launcher và trải nghiệm!\n"
-            );
-
             zip.generateAsync({ type: "blob" }).then(function(content) {
                 const link = document.createElement('a');
                 link.href = URL.createObjectURL(content);
@@ -707,7 +750,7 @@
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-                showToast("Tải về tập tin .ZIP Modpack thành công!");
+                showToast("Tải về tập tin .ZIP thành công!");
                 closeBasketModal();
             });
         }
@@ -715,66 +758,35 @@
         function openModModal(modId) {
             const mod = modsData.find(m => m.id === modId);
             const content = document.getElementById('modalContent');
-
             content.innerHTML = `
                 <div class="flex items-start space-x-4 mb-6">
                     <div class="w-16 h-16 rounded-2xl bg-slate-900 border border-mine-border flex items-center justify-center text-3xl shadow-inner flex-shrink-0">
-                        ${mod.icon}
+                        ${mod.icon || '📦'}
                     </div>
                     <div>
-                        <h3 class="text-xl font-extrabold text-white mb-1 flex items-center gap-2">
-                            ${mod.name}
-                        </h3>
-                        <p class="text-xs text-slate-400">Đăng bởi <span class="text-emerald-400 font-medium">${mod.author}</span> • ${mod.categoryLabel}</p>
+                        <h3 class="text-xl font-extrabold text-white mb-1">${mod.name}</h3>
+                        <p class="text-xs text-slate-400">Đăng bởi <span class="text-sky-400">${mod.author}</span></p>
                     </div>
                 </div>
-
                 <div class="mb-6">
                     <h5 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Mô Tả Mod:</h5>
-                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed bg-slate-900/60 p-4 rounded-2xl border border-mine-border">
-                        ${mod.fullDesc}
-                    </p>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed bg-slate-900/60 p-4 rounded-2xl border border-mine-border">${mod.fullDesc}</p>
                 </div>
-
                 <div class="mb-6">
-                    <h5 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-2">Mod Phụ Thuộc (Dependencies):</h5>
-                    <div class="flex flex-wrap gap-2">
-                        ${mod.dependencies.map(dep => `
-                            <span class="px-3 py-1 bg-amber-500/10 border border-amber-500/20 text-amber-400 text-xs font-semibold rounded-xl">
-                                ${dep}
-                            </span>
-                        `).join('')}
-                    </div>
-                </div>
-
-                <div class="mb-6">
-                    <h5 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Tải File Jar Tương Thích:</h5>
-                    <div class="space-y-2 max-h-48 overflow-y-auto pr-1">
+                    <h5 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Tải File Jar / Zip:</h5>
+                    <div class="space-y-2">
                         ${mod.jarFiles.map(file => `
                             <div class="bg-slate-900 border border-mine-border p-3 rounded-xl flex items-center justify-between">
                                 <div>
                                     <div class="text-xs font-bold text-white">${file.name}</div>
                                     <div class="text-[10px] text-slate-400">MC ${file.ver} (${file.loader}) •${file.size}</div>
                                 </div>
-                                <button onclick="triggerDirectDownload('${file.name}')" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold flex items-center space-x-1">
-                                    <i data-lucide="download" class="w-3.5 h-3.5"></i>
-                                    <span>Tải Về</span>
-                                </button>
+                                <button onclick="showToast('Đang tải ${file.name} (Tối đa 500MB)...')" class="px-3 py-1.5 bg-sky-500 hover:bg-sky-400 text-slate-950 font-bold rounded-lg text-xs">Tải Về</button>
                             </div>
                         `).join('')}
                     </div>
                 </div>
-
-                <div class="bg-emerald-950/30 border border-emerald-500/30 p-4 rounded-2xl">
-                    <h6 class="text-xs font-bold text-emerald-400 mb-1 flex items-center gap-1.5">
-                        <i data-lucide="info" class="w-4 h-4"></i> Hướng Dẫn Cài Đặt Tiếng Việt
-                    </h6>
-                    <p class="text-[11px] text-slate-300 leading-normal">
-                        Copy file <b class="text-white">.jar</b> đã tải vào thư mục <code class="bg-slate-900 px-1.5 py-0.5 rounded text-emerald-300">%appdata%\.minecraft\mods</code> rồi khởi động lại Minecraft.
-                    </p>
-                </div>
             `;
-
             lucide.createIcons();
             const modal = document.getElementById('modModal');
             modal.classList.remove('hidden');
@@ -787,30 +799,15 @@
             setTimeout(() => modal.classList.add('hidden'), 200);
         }
 
-        function triggerDirectDownload(fileName) {
-            showToast(`Đang tải file: ${fileName}`);
-            const element = document.createElement('a');
-            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`// VN Mod Minecraft File: ${fileName}`));
-            element.setAttribute('download', fileName);
-            element.style.display = 'none';
-            document.body.appendChild(element);
-            element.click();
-            document.body.removeChild(element);
-        }
-
         function showToast(message) {
             const toast = document.getElementById('toast');
-            const toastMessage = document.getElementById('toastMessage');
-            toastMessage.innerText = message;
+            document.getElementById('toastMessage').innerText = message;
             toast.classList.remove('translate-y-20', 'opacity-0');
-            
-            setTimeout(() => {
-                toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
+            setTimeout(() => toast.classList.add('translate-y-20', 'opacity-0'), 3000);
         }
     </script>
 
-    <!-- SCRIPT FIREBASE XÁC THỰC TÀI KHOẢN -->
+    <!-- SCRIPT FIREBASE XÁC THỰC & PROFILE -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
         import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
@@ -831,20 +828,27 @@
 
         onAuthStateChanged(auth, (user) => {
             if (user) {
+                currentUserEmail = user.email;
                 authSection.innerHTML = `
-                    <span class="text-xs font-semibold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1.5 rounded-xl hidden md:inline">👤 ${user.email}</span>
+                    <button onclick="openProfileModal()" class="flex items-center space-x-1.5 px-3 py-1.5 bg-sky-500/10 border border-sky-400/30 text-sky-300 hover:text-sky-200 text-xs font-semibold rounded-xl transition-all">
+                        <i data-lucide="user" class="w-3.5 h-3.5"></i>
+                        <span class="hidden md:inline">${user.email}</span>
+                    </button>
                     <button id="logout-btn" class="px-3 py-1.5 bg-red-600 hover:bg-red-500 text-white font-semibold text-xs rounded-xl shadow-md transition-colors">Đăng xuất</button>
                 `;
-                document.getElementById('logout-btn').addEventListener('click', () => {
+                lucide.createIcons();
+
+                window.handleUserLogout = function() {
                     signOut(auth).then(() => {
                         alert("Đã đăng xuất thành công!");
                         window.location.reload();
                     });
-                });
+                };
             } else {
+                currentUserEmail = '';
                 authSection.innerHTML = `
-                    <a href="login.html" class="px-3 py-1.5 bg-mine-card border border-mine-border hover:border-emerald-500/50 text-slate-300 hover:text-white text-xs font-semibold rounded-xl transition-all">Đăng nhập</a>
-                    <a href="register.html" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl shadow-md transition-colors">Đăng ký</a>
+                    <a href="login.html" class="px-3 py-1.5 bg-mine-card border border-mine-border hover:border-sky-400/50 text-slate-300 hover:text-white text-xs font-semibold rounded-xl transition-all">Đăng nhập</a>
+                    <a href="register.html" class="px-3 py-1.5 bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-400 hover:to-sky-400 text-slate-950 font-bold text-xs rounded-xl shadow-md transition-colors">Đăng ký</a>
                 `;
             }
         });

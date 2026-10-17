@@ -101,14 +101,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
             <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-emerald-300 text-xs font-semibold mb-4">
                 <i data-lucide="sparkles" class="w-4 h-4 text-sky-400"></i>
-                <span>Cập nhật mới: Toàn bộ mod đã được nâng cấp lên bản mới nhất 1.20 - 26.3!</span>
+                <span>Cập nhật chuẩn Modrinth: Hỗ trợ Minecraft từ 1.7.10 đến 1.26.3!</span>
             </div>
             
             <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mb-4 max-w-4xl mx-auto leading-tight">
                 Khám Phá & Tải Mod Tại <span class="bg-gradient-to-r from-emerald-300 via-teal-300 to-sky-400 bg-clip-text text-transparent">VN Mod Minecraft</span>
             </h2>
             <p class="text-sm sm:text-base text-slate-400 max-w-2xl mx-auto mb-8">
-                Tìm kiếm, lọc phiên bản từ <b class="text-slate-200">1.7.10</b> đến <b class="text-slate-200">1.26.3</b>, chọn Loader và xuất file Modpack .ZIP chuẩn xác nhất.
+                Tìm kiếm, lọc phiên bản từ <b class="text-slate-200">1.7.10</b> đến <b class="text-slate-200">1.26.3</b>, chọn Loader và xuất file Modpack .ZIP với tên bản mới nhất.
             </p>
 
             <div class="max-w-2xl mx-auto relative shadow-2xl rounded-2xl">
@@ -400,7 +400,7 @@
                 fullDesc: 'Fabric API cung cấp các hooks và thư viện liên kết tiêu chuẩn giúp các Fabric mod có thể chạy mượt mà và tương thích tốt với nhau.',
                 dependencies: ['Không yêu cầu'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'fabric-api-0.118.0+mc26.3.jar', size: '2.1 MB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'fabric-api-0.156.1+26.3.jar', size: '2.1 MB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'fabric-api-0.112.0+1.21.4.jar', size: '2.0 MB' },
                     { ver: '1.20.1', loader: 'Fabric', name: 'fabric-api-0.92.2+1.20.1.jar', size: '1.9 MB' }
                 ]
@@ -421,8 +421,8 @@
                 fullDesc: 'Sodium thay đổi hoàn toàn cách Minecraft render khối lệnh và ánh sáng, giảm giật lag spike và tăng vọt FPS.',
                 dependencies: ['Fabric API'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'sodium-fabric-mc26.3-0.9.3-beta.1.jar', size: '1.9 MB' },
-                    { ver: '1.26.3', loader: 'NeoForge', name: 'sodium-neoforge-mc26.3-0.9.3-beta.1.jar', size: '1.9 MB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'mc26.3-0.9.3-beta.1-fabric.jar', size: '1.9 MB' },
+                    { ver: '1.26.3', loader: 'NeoForge', name: 'mc26.3-0.9.3-beta.1-neoforge.jar', size: '1.9 MB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'sodium-fabric-mc1.21.4-0.6.2.jar', size: '1.7 MB' },
                     { ver: '1.20.1', loader: 'Fabric', name: 'sodium-fabric-mc1.20.1-0.5.11.jar', size: '1.6 MB' }
                 ]
@@ -443,7 +443,7 @@
                 fullDesc: 'Iris Shaders cho phép bạn bật các gói Shaders như BSL, Complementary mà vẫn giữ được FPS rất mượt khi dùng cùng Sodium.',
                 dependencies: ['Sodium', 'Fabric API'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'iris-fabric-mc1.26.3-1.8.10.jar', size: '2.5 MB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'iris-fabric-1.11.7+mc26.3.jar', size: '2.7 MB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'iris-fabric-mc1.21.4-1.8.2.jar', size: '2.3 MB' },
                     { ver: '1.20.1', loader: 'Fabric', name: 'iris-fabric-mc1.20.1-1.7.0.jar', size: '2.2 MB' }
                 ]
@@ -464,7 +464,7 @@
                 fullDesc: 'Tự động tạo các bản mô phỏng LOD đơn giản cho vùng đất xa, giúp nhìn thấy tầm nhìn cực rộng mà không bị ngốn RAM.',
                 dependencies: ['Fabric API / Forge'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'DistantHorizons-fabric-mc1.26.3-2.3.2.jar', size: '5.3 MB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'DistantHorizons-3.3.3-26.3-fabric.jar', size: '5.3 MB' },
                     { ver: '1.21.4', loader: 'NeoForge', name: 'DistantHorizons-neoforge-mc1.21.4-2.1.2.jar', size: '4.9 MB' },
                     { ver: '1.20.1', loader: 'Forge', name: 'DistantHorizons-forge-mc1.20.1-2.0.3.jar', size: '4.7 MB' }
                 ]
@@ -485,7 +485,7 @@
                 fullDesc: 'Mod cực kỳ hữu ích giúp xem độ no ẩn (Saturation) và lượng đùi gà hồi phục của thức ăn.',
                 dependencies: ['Không yêu cầu'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'appleskin-fabric-mc1.26.3-3.1.2.jar', size: '430 KB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'appleskin-fabric-mc26.3-3.0.10.jar', size: '176 KB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'appleskin-fabric-mc1.21.4-3.0.2.jar', size: '410 KB' },
                     { ver: '1.20.1', loader: 'Fabric', name: 'appleskin-fabric-mc1.20.1-2.5.1.jar', size: '390 KB' }
                 ]
@@ -506,7 +506,7 @@
                 fullDesc: 'Cho phép bạn nhìn xa đến 32 Chunks trên Server Multiplayer bằng cách lưu bộ nhớ đệm trên máy.',
                 dependencies: ['Fabric API'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'bobby-fabric-mc1.26.3-5.3.2.jar', size: '1.2 MB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'bobby-fabric-mc26.3-5.3.2.jar', size: '1.2 MB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'bobby-fabric-mc1.21.4-5.0.2.jar', size: '1.1 MB' },
                     { ver: '1.20.1', loader: 'Fabric', name: 'bobby-fabric-mc1.20.1-5.0.0.jar', size: '1.0 MB' }
                 ]
@@ -527,7 +527,7 @@
                 fullDesc: 'Cho phép copy, paste, thay thế khối hàng loạt trong thế giới Minecraft một cách nhanh chóng.',
                 dependencies: ['Không yêu cầu'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'worldedit-fabric-mc1.26.3-7.4.2.jar', size: '4.5 MB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'worldedit-mod-7.4.6-beta-01.jar', size: '4.5 MB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'worldedit-fabric-mc1.21.4-7.3.9.jar', size: '4.3 MB' },
                     { ver: '1.20.1', loader: 'Forge', name: 'worldedit-forge-mc1.20.1-7.2.15.jar', size: '4.1 MB' }
                 ]
@@ -548,7 +548,7 @@
                 fullDesc: 'Hỗ trợ tra cứu công thức chế tạo ngay trong giao diện hòm đồ cực kỳ tiện lợi.',
                 dependencies: ['Không yêu cầu'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'jei-fabric-mc1.26.3-18.2.0.jar', size: '3.3 MB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'jei-1.26.3-fabric-18.2.0.jar', size: '3.3 MB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'jei-fabric-mc1.21.4-17.4.0.jar', size: '3.2 MB' },
                     { ver: '1.20.1', loader: 'Forge', name: 'jei-forge-mc1.20.1-15.3.0.jar', size: '3.0 MB' }
                 ]
@@ -590,7 +590,7 @@
                 fullDesc: 'Giúp bạn kéo thả, sắp xếp hòm đồ và craft đồ nhanh chóng chỉ bằng vài cú click chuột.',
                 dependencies: ['Không yêu cầu'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'MouseTweaks-fabric-mc1.26.3-2.32.jar', size: '170 KB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'MouseTweaks-fabric-mc26.3-2.32.jar', size: '170 KB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'MouseTweaks-fabric-mc1.21.4-2.28.jar', size: '160 KB' },
                     { ver: '1.20.1', loader: 'Forge', name: 'MouseTweaks-forge-mc1.20.1-2.25.jar', size: '150 KB' }
                 ]
@@ -611,7 +611,7 @@
                 fullDesc: 'Giúp tìm kiếm nhanh các phím tắt bị trùng lặp hoặc cần đổi một cách dễ dàng.',
                 dependencies: ['Không yêu cầu'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'Controlling-fabric-mc1.26.3-20.2.jar', size: '360 KB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'Controlling-fabric-mc26.3-20.2.jar', size: '360 KB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'Controlling-fabric-mc1.21.4-19.1.jar', size: '350 KB' },
                     { ver: '1.20.1', loader: 'Forge', name: 'Controlling-forge-mc1.20.1-12.0.2.jar', size: '330 KB' }
                 ]
@@ -632,7 +632,7 @@
                 fullDesc: 'Khi bạn hạ gục nhiều quái vật, hàng trăm cục kinh nghiệm sẽ được gom lại làm một, chống tụt FPS hiệu quả.',
                 dependencies: ['Không yêu cầu'],
                 jarFiles: [
-                    { ver: '1.26.3', loader: 'Fabric', name: 'Clumps-fabric-mc1.26.3-19.2.0.jar', size: '220 KB' },
+                    { ver: '1.26.3', loader: 'Fabric', name: 'Clumps-fabric-mc26.3-19.2.0.jar', size: '220 KB' },
                     { ver: '1.21.4', loader: 'Fabric', name: 'Clumps-fabric-mc1.21.4-18.0.1.jar', size: '210 KB' },
                     { ver: '1.20.1', loader: 'Forge', name: 'Clumps-forge-mc1.20.1-12.0.0.3.jar', size: '200 KB' }
                 ]
@@ -991,7 +991,7 @@
                     <p class="text-xs sm:text-sm text-slate-300 leading-relaxed bg-slate-900/60 p-4 rounded-2xl border border-mine-border">${mod.fullDesc}</p>
                 </div>
                 <div class="mb-6">
-                    <h5 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Tải File Jar / Zip Theo Các Phiên Bản:</h5>
+                    <h5 class="text-xs font-bold text-slate-300 uppercase tracking-wider mb-3">Tải File Jar / Zip Mới Nhất Theo Modrinth:</h5>
                     <div class="space-y-2">
                         ${mod.jarFiles.map(file => `
                             <div class="bg-slate-900 border border-mine-border p-3 rounded-xl flex items-center justify-between">
@@ -1023,7 +1023,7 @@
         function triggerDirectDownload(fileName) {
             showToast(`Đang tải file: ${fileName}`);
             const element = document.createElement('a');
-            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`// VN Mod Minecraft File: ${fileName}\n// Tệp Mod Minecraft phiên bản mới nhất.`));
+            element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(`// VN Mod Minecraft File: ${fileName}\n// Tệp Mod Minecraft chuẩn phiên bản Modrinth.`));
             element.setAttribute('download', fileName);
             element.style.display = 'none';
             document.body.appendChild(element);

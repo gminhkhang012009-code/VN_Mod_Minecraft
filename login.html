@@ -30,7 +30,7 @@
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
     const firebaseConfig = {
-        apiKey: "AIzaSyDJ8NUX7ulkcM64DdSF-2JfWVBCzMxv0",
+        apiKey: "AIzaSyDJ8NU70X7ulkcM64DdSF-2JfWVBCzMxv0",
         authDomain: "vn-mod-minecraft.firebaseapp.com",
         projectId: "vn-mod-minecraft",
         storageBucket: "vn-mod-minecraft.firebasestorage.app",
@@ -43,7 +43,7 @@
     const auth = getAuth(app);
 
     window.handleLogin = function() {
-        const email = document.getElementById('login-email').value;
+        const email = document.getElementById('login-email').value.trim();
         const password = document.getElementById('login-password').value;
 
         if(!email || !password) {
@@ -54,10 +54,11 @@
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 alert("Đăng nhập thành công!");
-                window.location.href = "index.html"; // Chuyển về trang chủ sau khi đăng nhập thành công
+                window.location.href = "index.html";
             })
             .catch((error) => {
-                alert("Đăng nhập thất bại: Sai email hoặc mật khẩu!");
+                console.error(error);
+                alert("Lỗi đăng nhập: " + error.code);
             });
     }
 </script>
